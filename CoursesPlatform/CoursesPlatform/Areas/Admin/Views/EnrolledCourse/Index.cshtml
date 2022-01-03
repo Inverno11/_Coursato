@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CoursesPlatform.Models.EnrolledCourseModel>
+
+@{
+    ViewBag.Title = "Enrolled Course";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>History of enrolled course </h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Trainee.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Trainee.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model =>model.Registration )
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trainee.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trainee.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Registration)
+        </td>
+        
+    </tr>
+}
+
+</table>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CoursesPlatform.Models.CategoryModel>
+
+@{
+    ViewBag.Title = "Catogries";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<hr />
+
+<div>
+    @Html.ActionLink("Create a category", "Create")
+</div>
+<hr />
+
+<h2>List Of Category</h2>
+
+
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParentName)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentName)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
